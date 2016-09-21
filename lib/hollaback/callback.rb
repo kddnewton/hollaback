@@ -10,9 +10,9 @@ module Hollaback
     def build
       case executable
       when Symbol
-        lambda { |target, &block| target.send(executable, &block) }
+        -> (target, &block) { target.send(executable, &block) }
       when Proc
-        lambda { |target| target.instance_eval(&executable) }
+        -> (target) { target.instance_eval(&executable) }
       end
     end
   end

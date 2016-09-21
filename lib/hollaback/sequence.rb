@@ -18,6 +18,7 @@ module Hollaback
       self
     end
 
+    # rubocop:disable Performance/RedundantBlockCall
     def around(&around)
       Sequence.new do |target|
         around.call(target) { call(target) }

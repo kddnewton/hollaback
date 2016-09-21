@@ -8,7 +8,7 @@ class HollabackTest < Minitest::Test
       @name = name
     end
 
-    def say(&block)
+    def say(&_block)
       puts yield
     end
 
@@ -31,6 +31,14 @@ class HollabackTest < Minitest::Test
 
     stdout, = capture_io { sequence.call(Callbacker.new('Meaghan')) }
     assert_equal %w[hello before main after goodbye-Meaghan], stdout.split("\n")
+  end
+
+  def test_no_callbacks
+    chain = Hollaback::Chain.new
+    sequence = chain.compile { puts 'main' }
+
+    stdout, = capture_io { sequence.call(Callbacker.new('Jon')) }
+    assert_equal "main\n", stdout
   end
 
   private

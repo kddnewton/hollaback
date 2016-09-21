@@ -1,5 +1,7 @@
 # Hollaback
 
+[![Build Status](https://travis-ci.com/localytics/hollaback.svg?token=kQUiABmGkzyHdJdMnCnv&branch=master)](https://travis-ci.com/localytics/hollaback)
+
 Builds method chains such that you can execute functions inside of a predefined set of callbacks.
 
 ## Installation
