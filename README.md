@@ -1,6 +1,7 @@
 # Hollaback
 
 [![Build Status](https://travis-ci.com/localytics/hollaback.svg?token=kQUiABmGkzyHdJdMnCnv&branch=master)](https://travis-ci.com/localytics/hollaback)
+[![Coverage Status](https://coveralls.io/repos/github/localytics/hollaback/badge.svg?branch=master&t=Y84cXi)](https://coveralls.io/github/localytics/hollaback?branch=master)
 
 Builds method chains such that you can execute functions inside of a predefined set of callbacks.
 
