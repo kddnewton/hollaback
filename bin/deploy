@@ -18,7 +18,7 @@ function failOnBadExitStatus() {
 
 function deploy {
   echo 'Building gem...'
-  gem build laws.gemspec
+  gem build hollaback.gemspec
   failOnBadExitStatus
 
   echo 'Adding gem source'
@@ -30,7 +30,7 @@ function deploy {
   chmod 0600 ~/.gem/credentials
 
   echo 'Uploading to artifactory...'
-  response=$(gem push laws*.gem --host https://${GEM_HOST})
+  response=$(gem push hollaback*.gem --host https://${GEM_HOST})
   if [ "$?" -ne 0 ]; then
     echo "Gem push failed: $response"
     exit 1
@@ -39,7 +39,7 @@ function deploy {
   fi
 
   echo 'Creating a pushing git tag'
-  gem_version=$(ruby -I lib -e "require 'laws/version'; puts Laws::VERSION")
+  gem_version=$(ruby -I lib -e "require 'hollaback/version'; puts Hollaback::VERSION")
   git config --global user.email "techops-team+travis@localytics.com"
   git config --global user.name "Travis CI"
   git tag -a "$gem_version" -m "Version $gem_version"
