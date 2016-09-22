@@ -6,6 +6,11 @@ module Hollaback
       @callbacks = []
     end
 
+    def +(other)
+      @callbacks += other.callbacks
+      self
+    end
+
     def before(execute = nil, &block)
       build(:before, execute, &block)
     end

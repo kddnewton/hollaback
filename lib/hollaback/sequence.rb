@@ -8,18 +8,6 @@ module Hollaback
       @afters  = args.fetch(:afters, [])
     end
 
-    def +(other)
-      unless other.is_a?(Sequence)
-        raise ArgumentError, 'Can only add to another sequence'
-      end
-
-      Sequence.new(
-        befores: befores + other.befores,
-        afters: afters + other.afters,
-        &other.main
-      )
-    end
-
     def before(&before)
       befores << before
       self
