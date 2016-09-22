@@ -24,20 +24,22 @@ Or install it yourself as:
 
 ## Usage
 
+Sometimes you want to execute code in the context of hooks. With this gem you can build `before`, `after`, and `around` callbacks that are executed in the context of the given object. For `before`s and `after`s you can use either symbols are procs. For `around`s you can use symbols.
+
 ```ruby
 class Callbacker
   def say_hello
-    puts 'hello'
+    puts 'Hello!'
   end
 
   def say_goodbye
-    puts 'goodbye'
+    puts 'Goodbye!'
   end
 
   def say(&block)
-    print 'speaking... '
-    print yield
-    puts ' ...done.'
+    puts 'speaking... '
+    puts yield
+    puts '...done.'
   end
 end
 
@@ -45,10 +47,11 @@ require 'hollaback'
 chain = Hollaback::Chain.new
 
 chain.before :say_hello
+chain.before { puts 'How are you?' }
 chain.after :say_goodbye
 chain.around :say
 
-chain.compile { 'Hello world' }.call(Callbacker.new)
+chain.compile { '- Hollaback' }.call(Callbacker.new)
 ```
 
 ## Development
