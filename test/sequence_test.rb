@@ -15,7 +15,8 @@ class SequenceTest < Minitest::Test
     chain.after(:say_goodbye)
     sequence_b = chain.compile { puts 'main' }
 
-    stdout, = capture_io { (sequence_a + sequence_b).call(Callbacker.new('Kevin')) }
+    sequence = (sequence_a + sequence_b)
+    stdout, = capture_io { sequence.call(Callbacker.new('Kevin')) }
     assert_equal %w[hello main goodbye-Kevin], stdout.split("\n")
   end
 end

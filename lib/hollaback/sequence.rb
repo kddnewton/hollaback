@@ -9,8 +9,15 @@ module Hollaback
     end
 
     def +(other)
-      raise ArgumentError, 'Can only add to another sequence' unless other.is_a?(Sequence)
-      Sequence.new(befores: befores + other.befores, afters: afters + other.afters, &other.main)
+      unless other.is_a?(Sequence)
+        raise ArgumentError, 'Can only add to another sequence'
+      end
+
+      Sequence.new(
+        befores: befores + other.befores,
+        afters: afters + other.afters,
+        &other.main
+      )
     end
 
     def before(&before)

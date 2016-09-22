@@ -18,13 +18,17 @@ module Hollaback
       build(:around, execute, &block)
     end
 
+    def empty?
+      callbacks.empty?
+    end
+
     def compile(&block)
-      if callbacks.any?
+      if empty?
+        block
+      else
         callbacks.inject(Sequence.new(&block)) do |sequence, callback|
           sequence.send(callback.type, &callback.build)
         end
-      else
-        block
       end
     end
 
