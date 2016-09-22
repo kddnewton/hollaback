@@ -2,10 +2,15 @@ module Hollaback
   class Sequence
     attr_reader :befores, :afters, :main
 
-    def initialize(&main)
+    def initialize(args = {}, &main)
       @main    = main
-      @befores = []
-      @afters  = []
+      @befores = args.fetch(:befores, [])
+      @afters  = args.fetch(:afters, [])
+    end
+
+    def +(other)
+      raise ArgumentError, 'Can only add to another sequence' unless other.is_a?(Sequence)
+      Sequence.new(befores: befores + other.befores, afters: afters + other.afters, &other.main)
     end
 
     def before(&before)
