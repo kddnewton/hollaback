@@ -1,8 +1,7 @@
 # Hollaback
 
-[![Build Status](https://travis-ci.com/localytics/hollaback.svg?token=kQUiABmGkzyHdJdMnCnv&branch=master)](https://travis-ci.com/localytics/hollaback)
+[![Build Status](https://travis-ci.org/localytics/hollaback.svg?branch=master)](https://travis-ci.org/localytics/hollaback)
 [![Coverage Status](https://coveralls.io/repos/github/localytics/hollaback/badge.svg?branch=master&t=Y84cXi)](https://coveralls.io/github/localytics/hollaback?branch=master)
-[![Artifactory Version](http://artifactory-badge.gw.localytics.com/gem/hollaback)](https://localytics.artifactoryonline.com/localytics/webapp/#/home)
 
 Builds method chains such that you can execute functions inside of a predefined set of callbacks.
 
