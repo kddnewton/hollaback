@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/localytics/hollaback.svg?branch=master)](https://travis-ci.org/localytics/hollaback)
 [![Coverage Status](https://coveralls.io/repos/github/localytics/hollaback/badge.svg?branch=master)](https://coveralls.io/github/localytics/hollaback?branch=master)
+[![Gem Version](https://img.shields.io/gem/v/hollaback.svg?maxAge=2592000)](https://rubygems.org/gems/hollaback)
 
 Builds method chains such that you can execute functions inside of a predefined set of callbacks.
 
