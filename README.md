@@ -1,7 +1,6 @@
 # Hollaback
 
-[![Build Status](https://travis-ci.org/localytics/hollaback.svg?branch=master)](https://travis-ci.org/localytics/hollaback)
-[![Coverage Status](https://coveralls.io/repos/github/localytics/hollaback/badge.svg?branch=master)](https://coveralls.io/github/localytics/hollaback?branch=master)
+[![Build Status](https://travis-ci.com/kddeisz/hollaback.svg?branch=master)](https://travis-ci.com/kddeisz/hollaback)
 [![Gem Version](https://img.shields.io/gem/v/hollaback.svg?maxAge=2592000)](https://rubygems.org/gems/hollaback)
 
 Builds method chains such that you can execute functions inside of a predefined set of callbacks.
@@ -62,7 +61,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/localytics/hollaback.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/hollaback.
 
 ## License
 

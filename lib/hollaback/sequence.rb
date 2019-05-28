@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 module Hollaback
+  # An object that contains a sequence of callbacks along with a main execution
+  # function
   class Sequence
     attr_reader :befores, :afters, :main
 
@@ -18,7 +22,6 @@ module Hollaback
       self
     end
 
-    # rubocop:disable Performance/RedundantBlockCall
     def around(&around)
       Sequence.new do |target|
         around.call(target) { call(target) }
@@ -27,9 +30,10 @@ module Hollaback
 
     def call(target)
       befores.each { |before| before.call(target) }
-      value = main.call(target)
-      afters.each { |after| after.call(target) }
-      value
+
+      main.call(target).tap do
+        afters.each { |after| after.call(target) }
+      end
     end
   end
 end

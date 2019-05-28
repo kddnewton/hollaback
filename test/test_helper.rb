@@ -1,15 +1,31 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 SimpleCov.start do
   add_filter '/test/'
 end
 
-if ENV['CI']
-  require 'coveralls'
-  Coveralls.wear!
-end
-
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'hollaback'
 
 require 'minitest/autorun'
-require 'callbacker'
+
+class Callbacker
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def say(&_block)
+    puts yield
+  end
+
+  def say_hello
+    puts 'hello'
+  end
+
+  def say_goodbye
+    puts "goodbye-#{name}"
+  end
+end

@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 module Hollaback
+  # A callback that can be executed later
   class Callback
     attr_reader :type, :executable
 
     def initialize(type, execute = nil, &block)
       @type       = type
-      @executable = (execute ? execute : block)
+      @executable = (execute || block)
     end
 
     def build

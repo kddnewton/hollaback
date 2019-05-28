@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Hollaback
+  # A set of callbacks
   class Chain
     attr_reader :callbacks
 
