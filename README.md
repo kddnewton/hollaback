@@ -23,7 +23,31 @@ Or install it yourself as:
 
 ## Usage
 
-Sometimes you want to execute code in the context of hooks. With this gem you can build `before`, `after`, and `around` callbacks that are executed in the context of the given object. For `before`s and `after`s you can use either symbols are procs. For `around`s you can use symbols.
+Sometimes you want to execute code in the context of hooks. With this gem you can build `before`, `after`, and `around` callbacks that are executed in the context of the given object. For `before`s and `after`s you can use either symbols or procs. For `around`s you can use symbols.
+
+First, create a `Hollaback::Chain` object that will represent all of the callbacks that will be called around a block of code.
+
+```ruby
+require 'hollaback'
+chain = Hollaback::Chain.new
+```
+
+Then, specify the callbacks that will be called.
+
+```ruby
+chain.before :say_hello
+chain.before { puts 'How are you?' }
+chain.after :say_goodbye
+chain.around :say
+```
+
+Then, provide a block of code around which the callbacks will be called.
+
+```ruby
+compiled = chain.compile { '- Hollaback' }
+```
+
+Finally, specify an object that the callback chain should use as its context.
 
 ```ruby
 class Callbacker
@@ -42,15 +66,18 @@ class Callbacker
   end
 end
 
-require 'hollaback'
-chain = Hollaback::Chain.new
+compiled.call(Callbacker.new)
+```
 
-chain.before :say_hello
-chain.before { puts 'How are you?' }
-chain.after :say_goodbye
-chain.around :say
+In the above example, the following will output to stdout:
 
-chain.compile { '- Hollaback' }.call(Callbacker.new)
+```
+speaking... 
+Hello!
+How are you?
+Goodbye!
+- Hollaback
+...done.
 ```
 
 ## Development
