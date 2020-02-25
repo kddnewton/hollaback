@@ -1,7 +1,7 @@
 # Hollaback
 
-[![Build Status](https://travis-ci.com/kddeisz/hollaback.svg?branch=master)](https://travis-ci.com/kddeisz/hollaback)
-[![Gem Version](https://img.shields.io/gem/v/hollaback.svg?maxAge=2592000)](https://rubygems.org/gems/hollaback)
+[![Build Status](https://github.com/kddeisz/hollaback/workflows/Main/badge.svg)](https://github.com/kddeisz/hollaback/actions)
+[![Gem Version](https://img.shields.io/gem/v/hollaback.svg)](https://rubygems.org/gems/hollaback)
 
 Builds method chains such that you can execute functions inside of a predefined set of callbacks.
 
