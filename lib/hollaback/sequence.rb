@@ -28,7 +28,7 @@ module Hollaback
       end
     end
 
-    def call(target)
+    def call(target = nil)
       befores.each { |before| before.call(target) }
 
       main.call(target).tap do

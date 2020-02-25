@@ -23,20 +23,42 @@ class HollabackTest < Minitest::Test
     assert_equal "main\n", stdout
   end
 
+  def test_raises_on_invalid_arg
+    chain = Hollaback::Chain.new
+    chain.before Object.new
+
+    assert_raises ArgumentError do
+      chain.compile { puts 'main' }
+    end
+  end
+
+  def test_allows_calling_without_context
+    counter = 0
+    chain = Hollaback::Chain.new
+
+    chain.before { counter += 1 }
+    chain.after { counter += 1 }
+
+    chain.compile { counter += 1 }.call
+
+    assert_equal 3, counter
+  end
+
   private
 
   def sequence
-    @sequence ||= begin
-      chain = Hollaback::Chain.new
+    @sequence ||=
+      begin
+        chain = Hollaback::Chain.new
 
-      chain.before :say_hello
-      chain.before { say { 'before' } }
+        chain.before :say_hello
+        chain.before { say { 'before' } }
 
-      chain.after { say { 'after' } }
-      chain.after(:say_goodbye)
+        chain.after { say { 'after' } }
+        chain.after(:say_goodbye)
 
-      chain.around(:say)
-      chain.compile { puts 'main' }
-    end
+        chain.around(:say)
+        chain.compile { puts 'main' }
+      end
   end
 end

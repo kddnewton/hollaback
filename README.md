@@ -47,7 +47,7 @@ Then, provide a block of code around which the callbacks will be called.
 compiled = chain.compile { '- Hollaback' }
 ```
 
-Finally, specify an object that the callback chain should use as its context.
+Finally, call the compiled sequence of callbacks (with or without an optional context object on which the symbol callbacks should be defined).
 
 ```ruby
 class Callbacker

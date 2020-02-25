@@ -16,6 +16,8 @@ module Hollaback
         ->(target, &block) { target.send(executable, &block) }
       when Proc
         ->(target) { target.instance_eval(&executable) }
+      else
+        raise ArgumentError, "Invalid callback argument: #{executable.inspect}"
       end
     end
   end
