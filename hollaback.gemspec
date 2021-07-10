@@ -7,8 +7,8 @@ require 'hollaback/version'
 Gem::Specification.new do |spec|
   spec.name          = 'hollaback'
   spec.version       = Hollaback::VERSION
-  spec.authors       = ['Kevin Deisz']
-  spec.email         = ['kevin.deisz@gmail.com']
+  spec.authors       = ['Kevin Newton']
+  spec.email         = ['kddnewton@gmail.com']
 
   spec.summary       = 'Add callbacks to your methods'
   spec.homepage      = 'https://github.com/kddeisz/hollaback'
