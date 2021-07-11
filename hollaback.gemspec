@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['kddnewton@gmail.com']
 
   spec.summary       = 'Add callbacks to your methods'
-  spec.homepage      = 'https://github.com/kddeisz/hollaback'
+  spec.homepage      = 'https://github.com/kddnewton/hollaback'
   spec.license       = 'MIT'
 
   files              = `git ls-files -z`.split("\x0")

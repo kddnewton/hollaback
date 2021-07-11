@@ -1,6 +1,6 @@
 # Hollaback
 
-[![Build Status](https://github.com/kddeisz/hollaback/workflows/Main/badge.svg)](https://github.com/kddeisz/hollaback/actions)
+[![Build Status](https://github.com/kddnewton/hollaback/workflows/Main/badge.svg)](https://github.com/kddnewton/hollaback/actions)
 [![Gem Version](https://img.shields.io/gem/v/hollaback.svg)](https://rubygems.org/gems/hollaback)
 
 Builds method chains such that you can execute functions inside of a predefined set of callbacks.
@@ -88,7 +88,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/hollaback.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddnewton/hollaback.
 
 ## License
 
