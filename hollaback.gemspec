@@ -1,21 +1,29 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'hollaback/version'
+require_relative 'lib/hollaback/version'
+
+version = Hollaback::VERSION
+repository = 'https://github.com/kddnewton/hollaback'
 
 Gem::Specification.new do |spec|
   spec.name          = 'hollaback'
-  spec.version       = Hollaback::VERSION
+  spec.version       = version
   spec.authors       = ['Kevin Newton']
   spec.email         = ['kddnewton@gmail.com']
 
   spec.summary       = 'Add callbacks to your methods'
-  spec.homepage      = 'https://github.com/kddnewton/hollaback'
+  spec.homepage      = repository
   spec.license       = 'MIT'
 
-  files              = `git ls-files -z`.split("\x0")
-  spec.files         = files.reject { |f| f.match(%r{^test/}) }
+  spec.metadata      = {
+    'bug_tracker_uri' => "#{repository}/issues",
+    'changelog_uri' => "#{repository}/blob/v#{version}/CHANGELOG.md",
+    'source_code_uri' => repository,
+    'rubygems_mfa_required' => 'true'
+  }
+
+  spec.files         =
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^test/}) }
 
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
