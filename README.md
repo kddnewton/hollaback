@@ -10,7 +10,7 @@ Builds method chains such that you can execute functions inside of a predefined 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hollaback'
+gem "hollaback"
 ```
 
 And then execute:
@@ -28,7 +28,7 @@ Sometimes you want to execute code in the context of hooks. With this gem you ca
 First, create a `Hollaback::Chain` object that will represent all of the callbacks that will be called around a block of code.
 
 ```ruby
-require 'hollaback'
+require "hollaback"
 chain = Hollaback::Chain.new
 ```
 
@@ -36,7 +36,7 @@ Then, specify the callbacks that will be called.
 
 ```ruby
 chain.before :say_hello
-chain.before { puts 'How are you?' }
+chain.before { puts "How are you?" }
 chain.after :say_goodbye
 chain.around :say
 ```
@@ -44,7 +44,7 @@ chain.around :say
 Then, provide a block of code around which the callbacks will be called.
 
 ```ruby
-compiled = chain.compile { '- Hollaback' }
+compiled = chain.compile { "- Hollaback" }
 ```
 
 Finally, call the compiled sequence of callbacks (with or without an optional context object on which the symbol callbacks should be defined).
@@ -52,17 +52,17 @@ Finally, call the compiled sequence of callbacks (with or without an optional co
 ```ruby
 class Callbacker
   def say_hello
-    puts 'Hello!'
+    puts "Hello!"
   end
 
   def say_goodbye
-    puts 'Goodbye!'
+    puts "Goodbye!"
   end
 
   def say(&block)
-    puts 'speaking... '
+    puts "speaking... "
     puts yield
-    puts '...done.'
+    puts "...done."
   end
 end
 

@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'simplecov'
+require "simplecov"
 
 SimpleCov.start do
-  add_filter '/test/'
+  add_filter "/test/"
   enable_coverage :branch
 end
 
-$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
-require 'hollaback'
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+require "hollaback"
 
-require 'minitest/autorun'
+require "minitest/autorun"
 
 class Callbacker
   attr_reader :name
@@ -24,7 +24,7 @@ class Callbacker
   end
 
   def say_hello
-    puts 'hello'
+    puts "hello"
   end
 
   def say_goodbye

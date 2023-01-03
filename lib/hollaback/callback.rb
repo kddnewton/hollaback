@@ -6,7 +6,7 @@ module Hollaback
     attr_reader :type, :executable
 
     def initialize(type, execute = nil, &block)
-      @type       = type
+      @type = type
       @executable = (execute || block)
     end
 

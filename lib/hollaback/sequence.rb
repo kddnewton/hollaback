@@ -7,9 +7,9 @@ module Hollaback
     attr_reader :befores, :afters, :main
 
     def initialize(args = {}, &main)
-      @main    = main
+      @main = main
       @befores = args.fetch(:befores, [])
-      @afters  = args.fetch(:afters, [])
+      @afters = args.fetch(:afters, [])
     end
 
     def before(&before)
@@ -23,17 +23,13 @@ module Hollaback
     end
 
     def around(&around)
-      Sequence.new do |target|
-        around.call(target) { call(target) }
-      end
+      Sequence.new { |target| around.call(target) { call(target) } }
     end
 
     def call(target = nil)
       befores.each { |before| before.call(target) }
 
-      main.call(target).tap do
-        afters.each { |after| after.call(target) }
-      end
+      main.call(target).tap { afters.each { |after| after.call(target) } }
     end
   end
 end
