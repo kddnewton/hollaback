@@ -36,3 +36,6 @@ Style/FormatStringToken:
 
 Style/PerlBackrefs:
   Enabled: false
+
+Style/RedundantParentheses:
+  Enabled: false
